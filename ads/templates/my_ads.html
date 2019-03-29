@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} My Ads :: {{user_products.user}} {% endblock %}
+
+{% block content %}
+<h5 class="section-title">My Ads <br><div align="center">{{u}}</div></h5>
+<div align="center">
+{% for user_products in user_products %}
+<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+    <div class="boxed">
+                <div class="icon">
+                    <a href="/product/{{user_products.id}}"><img src="/media/{{user_products.img}}" ></a>
+                    </div>
+                  <h5><a href="/product/{{user_products.id}}"> {{user_products.title}}</a></h5>
+<a href="/product/{{user_products.id}}"> {{user_products.price}}</a>
+              </div>
+    </div>
+{% endfor %}
+    </div>
+{% endblock %}

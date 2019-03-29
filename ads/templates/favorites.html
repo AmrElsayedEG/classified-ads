@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %} My Favorites {% endblock %}
+{% block content %}<hr>
+<div align="center"><font size="7">My Favorite Products List</font>
+<hr>
+{% for favorites in favorites %}
+<a href="/product/{{ favorites.product.id }}/">{{ favorites.product }}</a>
+<hr>
+{% endfor %}
+    </div>
+{% endblock %}

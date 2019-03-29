@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} {{p.user}} {% endblock %}
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("div").scrollTop(100000);
+});
+</script>
+
+<div align="center">
+<h1>You are chatting with <a href="/accounts/{{name}}/">{{name|title}}</a></h1>
+
+
+<div style="height:600px;width:600px;border:5px solid #ddd;font:16px/26px Georgia, Garamond, Serif;overflow:auto;overflow: hidden;">
+    <div align="left">
+{% for m,s in msg_list.items %}
+{% if s == u %}
+<a href="/accounts/{{s}}"><img src="/media/{{sen_img.img}}" height="50" width="50"/></a> : {{m}} <hr>
+{% else %}
+<a href="/accounts/{{s}}"><img src="/media/{{rec_img.img}}" height="50" width="50"/></a> : {{m}} <hr>
+{% endif %}
+{% endfor %}
+        </div>
+</div>
+<div align="center">
+<br><br><br>
+<form method="post">
+    {% csrf_token %}
+    {{ chat_form.as_p }}
+    <input type="submit" value="send">
+</form>
+    </div>
+</div>
+{% endblock %}

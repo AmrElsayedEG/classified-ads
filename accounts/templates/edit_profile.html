@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %} Edit Profile : {{profile.user}} {% endblock %}
+{% block content %}
+<div align="center">
+<br>
+<form method="post">
+    {% csrf_token %}
+    {{user_form.as_p}}
+    {{profile_form.as_p}}
+    <img src="/media/{{profile_form.img.value}}"><br>
+    <button type="submit">Save Edits</button>
+</form>
+</div>
+{% endblock %}

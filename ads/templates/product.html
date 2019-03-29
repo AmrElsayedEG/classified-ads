@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %} {{p.title}} {% endblock %}
+{% block content %}
+<div align="center">
+<h1 class="section-title">{{p.title}}</h1>
+<br>
+
+<img src="/media/{{p.img}}" alt="Not Available" height="400" length="700">
+<br> <h3><a href="/accounts/{{p.user}}/">{{p.user}}</a></h3><br>
+    <h3>Price:{{p.price}}</3>
+<br>
+    <h3>
+        {{p.country}} <br> {{p.address}}
+    </h3>
+    <h3>{{p.phone}}</3>
+<br>
+    <h2>{{p.about}}</h2>
+<br>
+    </div>
+<br>
+<!-- favorites -->
+<hr>
+{% if favorites_check %}
+<input type="button" value="Added to Favorites List">
+{% else %}
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Add to Favorites List">
+
+</form>
+<hr>
+{% endif %}
+<h1>Comments</h1>
+{% if comments %}
+{% for comments in comments %}
+{{comments.user}} : {{ comments.comment }}
+<br>
+{% endfor %}
+{% else %}
+<h7>No Comments Yet.</h7>
+{% endif %}
+<br>
+<hr>
+<form method="post">
+    {% csrf_token %}
+{{  comment_form.as_p }}
+    <input type="submit" value="Add Comment">
+     </form>
+{% endblock %}

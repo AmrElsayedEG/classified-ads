@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} {{p.user}} {% endblock %}
+{% block content %}
+<div align="center">
+<br>
+<img src="/media/{{p.img}}" height="150" width="150">
+<br><h6>
+UserName : {{p.user}}
+<br>
+{{p.country}}
+<br>
+
+    Full Name : {% if p.first_name %} {{p.first_name}} {{p.last_name}}
+    {% else %} Null {% endif %}
+    </h6>
+    <br>
+    {% if edit %}
+     <button onclick="window.location.href = '/accounts/info/edit/';">Edit your account information</button>
+    {% else %}
+    <hr> <font size="5">
+    <a href="/chat/{{slug}}">Click Here to chat with {{slug}}</a>
+    </font><hr>
+    {% endif %}
+</div>
+
+{% endblock %}
