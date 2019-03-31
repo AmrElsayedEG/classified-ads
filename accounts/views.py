@@ -3,7 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 from accounts.forms import UserForm, ProfileForm
 from accounts.models import Profile
-
+from ads.models import Products
+from django.contrib.auth.models import User
 
 def home(request):
     pass
@@ -50,3 +51,25 @@ def edit_profile(request):
         'profile': profile,
     }
     return render(request,'edit_profile.html',context)
+
+def statisticsPage(request):
+    u = request.user
+    is_admin = False
+    if str(u) == 'admin':
+        is_admin = True
+    NoProduct = Products.objects.all().count()
+    NoUser = User.objects.all().count()
+    #Chart
+    catlist = ['vehicle','laptops','mobile','electronics','computer','real estate','home appliances','jobs']
+    nums = []
+    for i in catlist:
+        no = Products.objects.filter(categories = str(i)).count()
+        nums.append(no)
+    context = {'NoProduct':NoProduct,
+               'NoUser':NoUser,
+               'is_admin':is_admin,
+               'u':u,
+               'catlist':catlist,
+               'nums':nums,
+               }
+    return render(request,'statistics.html',context)

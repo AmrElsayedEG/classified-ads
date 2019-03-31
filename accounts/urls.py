@@ -25,6 +25,6 @@ urlpatterns = [
     path('logout/',LogoutView.as_view(),name='logout'),
     path('signup/',views.register),
     path('<str:slug>/',views.profile),
-    #path('<str:slug>/edit',views.edit_profile)
+    path('admin/statistics/',views.statisticsPage),
     path('info/edit/',views.edit_profile)
 ]
