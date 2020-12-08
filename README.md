@@ -1,25 +1,25 @@
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
-# classified-ads
-classified-ads
+## Classified Ads Website ![Django](https://img.shields.io/badge/Django-2.2.9-yellow.svg) 
+##### Note: This project cares more about Back-End not the Front-End so you will find some pages doesn't have a greate look (Not for production project)
 
-#This is a BackEnd for Classified Ads website so users can add their ads. They can do:-
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Run](#run)
 
-*Add ads with pictures
+## General info
+- Users can add new ads with images or make comment to existing ad
+- User Regestration system & Profile Management
+- Users can add ads to wishing list or mark it as favorite product
+- Any user can open a private chat with another User
+- Admin panel has statisitcs
 
-*Make Profile with Edit profile
+## Technologies
+Project is created with:
+* Django: 2.2
+* Django Rest FrameWork	
+## Run
+To run this project, install it locally and run this:
 
-*Make Comment
-
-*Add any Ad to Favorites List
-
-*Private chat between two users
-
-*Notification when user get a new message
-
-*RestAPI
-
-*Added Statistics Page Only For Admin displays Number of Products & Users
-
-*Added Graph to display Categories Only For Admin
-
-By Amr Elsayed https://www.facebook.com/amr.elsayed.73999
+```
+$ python manage.py runserver
+```
